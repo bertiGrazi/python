@@ -58,3 +58,30 @@ print(f"Saldo da CC: {conta.consultar_saldo()}" )
 
 conta.sacar(valor=200)
 print(f"Saldo da CC: {conta.consultar_saldo()}" )
+
+print("\nExemplo de Abstração")
+from abc import ABC, abstractmethod
+
+class Veiculo(ABC):
+   
+   # Obrigação a definir o que a classe Veiculo faz
+   @abstractmethod
+   def ligar(self):
+      pass
+   
+   def desligar(self):
+      pass
+   
+class Carro(Veiculo):
+   def __init__(self) -> None:
+      super().__init__()
+  
+   def ligar(self):
+      return "Carro ligado"
+   
+   def desligar(self):
+      return "Carro desligado"
+
+carro_amarelo = Carro()
+print(carro_amarelo.ligar())
+print(carro_amarelo.desligar())
